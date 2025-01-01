@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="">Height</label>
+    <input type="text" name="" id="height" />
+
+    <br />
+    <br />
+
+    <label for="">Weight</label>
+    <input type="text" name="" id="weight" />
+
+    <br />
+    <br />
+
+    <button id="submit">Calculate BMI</button>
+
+    <br />
+    <br />
+
+    <h2 id="bmiResult"></h2>
+  </body>
+  <script>
+    /// selectors
+    let heightInuput = document.getElementById("height");
+    let weightInput = document.getElementById("weight");
+    let btn = document.getElementById("submit");
+    let bmiResult = document.getElementById("bmiResult");
+
+    btn.addEventListener("click", (event) => {
+      if (heightInuput.value.trim() === "" || weightInput.value.trim() === "") {
+        alert("Fill the required details to perform BMI");
+        return;
+      }
+
+      let bmiValue = heightInuput.value / weightInput.value;
+
+      console.log(bmiValue);
+
+      //   if (bmiValue < 18.5) {
+      //     bmiResult.innerHTML = "<h2>Your BMI is UnderWeight</h2>";
+      //   } else if (bmiValue > 18.5 || bmiValue < 24.9) {
+      //     bmiResult.innerHTML = "<h2>Your BMI is Healthy</h2>";
+      //   } else if (bmiValue > 25 || bmiValue < 29.9) {
+      //     bmiResult.innerHTML = "<h2>Your BMI is Overweight</h2>";
+      //   } else {
+      //     bmiResult.innerHTML = "<h2>Your BMI is Obesed</h2>";
+      //   }
+
+      bmiResult.innerHTML =
+        bmiValue < 18.5
+          ? "<h2>Your BMI is UnderWeight</h2>"
+          : bmiValue >= 18.5 && bmiValue <= 24.9
+          ? "<h2>Your BMI is Healthy</h2>"
+          : bmiValue >= 25 && bmiValue <= 29.9
+          ? "<h2>Your BMI is Overweight</h2>"
+          : "<h2>Your BMI is Obese</h2>";
+    });
+  </script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imran</title>
+  </head>
+
+  <body>
+    <h1 id="name">Imran</h1>
+    <div id="box"></div>
+  </body>
+  <script>
+    console.log("Imran");
+    console.log(document.title);
+
+    let element = document.getElementById("name");
+    /// if i print the element, it shows only the full html tag
+    console.log(element);
+    /// if i print the element.textcontent, it shows the text content
+    console.log(element.textContent);
+
+    element.textContent += "Freakz";
+
+    let boxElement = document.getElementById("Box");
+    // to insert an tag
+    element.innerHTML = "<p>Hi!!</p>";
+    /// we can also style the font color 
+    element.style.color = "red";
+  </script>
+</html>

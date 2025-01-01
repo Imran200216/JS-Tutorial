@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <h2>Todo List</h2>
+    <ul id="todolist"></ul>
+
+    <div>
+      <input type="text" id="addTask" />
+      <button id="submit">Add Task</button>
+    </div>
+
+    <h3>Completed task</h3>
+    <ul id="doneList"></ul>
+  </body>
+  <script>
+    /// selectors
+    let btn = document.getElementById("submit");
+    let addTask = document.getElementById("addTask");
+    let todoList = document.getElementById("todolist");
+    let doneList = document.getElementById("doneList");
+
+    /// to store the list of tasks
+    let list = [];
+
+    /// add task functionality
+    btn.addEventListener("click", (event) => {
+      if (addTask.value.trim() === "") {
+        alert("Task cannot be empty!");
+        return;
+      }
+      list.push(addTask.value);
+      todoList.innerHTML +=
+        '<li id="' +
+        (list.length - 1) +
+        '"><button onclick = "complete(' +
+        (list.length - 1) +
+        ')">' +
+        addTask.value +
+        "</button></li >";
+
+      console.log(list);
+      // Clear the input field after adding
+      addTask.value = "";
+    });
+  
+    /// complete functionality
+    function complete(id) {
+      doneList.innerHTML += "<li>" + list[id] + "</li>  ";
+      document.getElementById(id).style.display = "none";
+    }
+  </script>
+</html>
